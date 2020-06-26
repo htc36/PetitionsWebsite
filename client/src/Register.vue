@@ -169,7 +169,7 @@
             if (currentObj.imageName != null) {
               currentObj.setImage(id);
             }
-            currentObj.$router.push('/profile');
+            currentObj.$router.push('#/profile');
           })
           .catch(function (error) {
             console.log(error);

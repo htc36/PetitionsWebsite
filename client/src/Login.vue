@@ -69,7 +69,7 @@
             localStorage.setItem('token', response.data.token);
             console.log(JSON.stringify((response.data.userId)))
             console.log(JSON.stringify((response.data.token)))
-            currentObj.$router.push('/profile');
+            currentObj.$router.push('#/profile');
             currentObj.isLoggedIn = true;
           })
           .catch(function (error) {

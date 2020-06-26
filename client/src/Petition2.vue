@@ -7,7 +7,7 @@
       id="petitions"
     >
       <template v-slot:cell(view)="data">
-        <a :href="'/petitions/' + data.item.petitionId">View</a>
+        <a :href="'#/petitions/' + data.item.petitionId">View</a>
       </template>
     </b-table>
     <b-pagination

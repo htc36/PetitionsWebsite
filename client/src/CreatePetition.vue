@@ -193,7 +193,7 @@
               .then(function (response) {
                 currectObj.axios.post('http://45.76.124.20:4941/api/v1/petitions/' + id + "/signatures")
                   .then(function (response) {
-                    currectObj.$router.push('/petition/' + id);
+                    currectObj.$router.push('#/petition/' + id);
                   })
                   .catch(function (error) {
                     alert(error);

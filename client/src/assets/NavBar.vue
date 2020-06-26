@@ -15,7 +15,7 @@
         <b-navbar-nav class="ml-auto">
           <b-nav-item v-if="loggedIn" href="/editProfile">Edit Profile</b-nav-item>
           <b-navbar-nav>
-            <b-nav-item v-if="!this.loggedIn" to='/login'>Log In</b-nav-item>
+            <b-nav-item v-if="!this.loggedIn" to='#/login'>Log In</b-nav-item>
             <b-nav-item v-if="this.loggedIn" @click="logout" >Log Out</b-nav-item>
           </b-navbar-nav>
         </b-navbar-nav>
@@ -49,7 +49,7 @@
         this.axios.post('http://45.76.124.20:4941/api/v1/users/logout')
           .then(function (response) {
             localStorage.clear();
-            vueObj.$router.push('/login');
+            vueObj.$router.push('#/login');
           })
           .catch(function (error) {
 
@@ -57,11 +57,11 @@
     },
       goToEdit() {
         const profileId = this.$route.params.id;
-        this.$router.push('/profile/edit/' + profileId);
+        this.$router.push('#/profile/edit/' + profileId);
       },
       goToProfile() {
         const profileId = this.$route.params.id;
-        this.$router.push('/profile/' + profileId);
+        this.$router.push('#/profile/' + profileId);
       }
     },
     mounted: function() {

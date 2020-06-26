@@ -48,7 +48,7 @@
           </b-col>
           <b-col>
             <b-button-group v-if="data.authorId == signedInId && data != ''" >
-              <b-button align="right" :to="'/edit/' + petitionId" v-if="closed != true">Edit</b-button>
+              <b-button align="right" :to="'#/edit/' + petitionId" v-if="closed != true">Edit</b-button>
               <b-button variant="danger" @click="removePetition()">Delete</b-button>
             </b-button-group>
 <!--            <b-button v-if="checker()" align="right" :to="'/edit/' + petitionId">Edit</b-button>-->
@@ -185,7 +185,7 @@
         const currentObj = this
         this.axios.delete('http://45.76.124.20:4941/api/v1/petitions/' + this.petitionId )
           .then((res) => {
-            this.$router.push('/profile')
+            this.$router.push('#/profile')
           })
           .catch(err => alert(err));
       },

@@ -77,7 +77,7 @@
           .catch(function (err) {
             alert(err);
             localStorage.clear();
-            currentObj.$router.push('/login');
+            currentObj.$router.push('#/login');
 
           });
       },

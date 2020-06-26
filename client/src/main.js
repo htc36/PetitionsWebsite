@@ -89,7 +89,7 @@ const routes = [
 
 const router = new VueRouter({
   routes: routes,
-  mode:'history'
+  mode:'hash'
 });
 router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);

@@ -43,7 +43,7 @@
       :sort-desc.sync="sortDesc"
     >
       <template v-slot:cell(view)="data">
-        <a :href="'/petition/' + data.item.petitionId">View</a>
+        <a :href="'#/petition/' + data.item.petitionId">View</a>
       </template>
       <template v-slot:cell(image) = "data">
         <img :src="'http://45.76.124.20:4941/api/v1/petitions/' + data.item.petitionId + '/photo' " alt="" width="50" heigt="50"/>

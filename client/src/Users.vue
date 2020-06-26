@@ -94,7 +94,7 @@
                 this.users.splice(i,1);
               }
             }
-            this.$router.push('/users');
+            this.$router.push('#/users');
           },function(error){
             this.error = error;
             this.errorFlag = true;
