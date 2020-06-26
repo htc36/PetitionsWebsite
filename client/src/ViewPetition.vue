@@ -185,7 +185,7 @@
         const currentObj = this
         this.axios.delete('http://45.76.124.20:4941/api/v1/petitions/' + this.petitionId )
           .then((res) => {
-            this.$router.push('#/profile')
+            this.$router.push('/profile')
           })
           .catch(err => alert(err));
       },

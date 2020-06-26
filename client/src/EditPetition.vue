@@ -145,7 +145,7 @@
 
     methods: {
       goBack: function() {
-        this.$router.push('#/petition/' + this.id);
+        this.$router.push('/petition/' + this.id);
       },
       validateState: function(name) {
         const { $dirty, $error } = this.$v[name];
@@ -221,7 +221,7 @@
                 }
               })
               .then(function (response) {
-                currectObj.$router.push('#/petition/' + currectObj.id);
+                currectObj.$router.push('/petition/' + currectObj.id);
               })
               .catch(function (error) {
                 alert(error);
@@ -243,7 +243,7 @@
       this.axios.get('http://45.76.124.20:4941/api/v1/petitions/' + this.id)
         .then((res) => {
           if(res.data.authorId != localStorage.getItem("user")){
-            this.$router.push('#/petition');
+            this.$router.push('/petition');
             this.title = res.data.title
             this.category = res.data.category
             this.description = res.data.description
@@ -270,12 +270,12 @@
 
           }
         })
-        .catch(err => this.$router.push('#/'));
+        .catch(err => this.$router.push('/'));
 
     },
     computed: {
       id: function() {
-        this.$router.push('#/login');
+        this.$router.push('/login');
       }
 
     }
