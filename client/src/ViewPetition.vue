@@ -48,7 +48,7 @@
           </b-col>
           <b-col>
             <b-button-group v-if="data.authorId == signedInId && data != ''" >
-              <b-button align="right" :to="'#/edit/' + petitionId" v-if="closed != true">Edit</b-button>
+              <b-button align="right" :to="'/edit/' + petitionId" v-if="closed != true">Edit</b-button>
               <b-button variant="danger" @click="removePetition()">Delete</b-button>
             </b-button-group>
 <!--            <b-button v-if="checker()" align="right" :to="'/edit/' + petitionId">Edit</b-button>-->
