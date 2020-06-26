@@ -46,7 +46,7 @@
       logout() {
         const vueObj = this;
         this.axios.defaults.headers.common['X-Authorization'] = localStorage.getItem('token');
-        this.axios.post('http://localhost:4941/api/v1/users/logout')
+        this.axios.post('http://45.76.124.20:4941/api/v1/users/logout')
           .then(function (response) {
             localStorage.clear();
             vueObj.$router.push('/login');

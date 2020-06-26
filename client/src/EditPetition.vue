@@ -163,7 +163,7 @@
       },
       getPetitionImage: function() {
         const currentObj = this
-        this.axios.get('http://localhost:4941/api/v1/petitions/' + this.id + "/photo", { responseType: 'blob' })
+        this.axios.get('http://45.76.124.20:4941/api/v1/petitions/' + this.id + "/photo", { responseType: 'blob' })
           .then((res) => {
             this.file = res.data
             let fileReader = new FileReader();
@@ -177,7 +177,7 @@
       },
       getCategories(category) {
         const currectObj = this;
-        this.axios.get('http://localhost:4941/api/v1/petitions/categories')
+        this.axios.get('http://45.76.124.20:4941/api/v1/petitions/categories')
           .then((res) => {
             const data = res.data;
             for (let i = 0; i < data.length; i++) {
@@ -209,12 +209,12 @@
           toSend["closingDate"] = this.date + "T" + this.time
         }
         this.axios.defaults.headers.common['X-Authorization'] = localStorage.getItem('token');
-        this.axios.patch('http://localhost:4941/api/v1/petitions/' + this.id,
+        this.axios.patch('http://45.76.124.20:4941/api/v1/petitions/' + this.id,
           toSend
         )
           .then((res) => {
             // currectObj.$router.push("/petition/" + this.id)
-            this.axios.put('http://localhost:4941/api/v1/petitions/' + this.id + "/photo",
+            this.axios.put('http://45.76.124.20:4941/api/v1/petitions/' + this.id + "/photo",
               this.file,
               {headers: {
                   "Content-Type": currectObj.file.type
@@ -240,7 +240,7 @@
 
     mounted: function () {
       this.id = this.$route.params.id
-      this.axios.get('http://localhost:4941/api/v1/petitions/' + this.id)
+      this.axios.get('http://45.76.124.20:4941/api/v1/petitions/' + this.id)
         .then((res) => {
           if(res.data.authorId != localStorage.getItem("user")){
             this.$router.push('/petition');

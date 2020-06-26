@@ -99,7 +99,7 @@
               :current-page="currentPage"
             >
               <template v-slot:cell(name) = "data">
-                <b-avatar :src="'http://localhost:4941/api/v1/users/' + data.item.signatoryId + '/photo' "></b-avatar>     {{data.item.name}}
+                <b-avatar :src="'http://45.76.124.20:4941/api/v1/users/' + data.item.signatoryId + '/photo' "></b-avatar>     {{data.item.name}}
 <!--                <b-avatar :src="data.item.image"></b-avatar> {{ data.item.name }}-->
               </template>
             </b-table>
@@ -183,7 +183,7 @@
       },
       removePetition() {
         const currentObj = this
-        this.axios.delete('http://localhost:4941/api/v1/petitions/' + this.petitionId )
+        this.axios.delete('http://45.76.124.20:4941/api/v1/petitions/' + this.petitionId )
           .then((res) => {
             this.$router.push('/profile')
           })
@@ -191,7 +191,7 @@
       },
       signPetition(signed) {
         if (!signed) {
-          this.axios.post('http://localhost:4941/api/v1/petitions/' + this.petitionId + "/signatures" )
+          this.axios.post('http://45.76.124.20:4941/api/v1/petitions/' + this.petitionId + "/signatures" )
             .then((res) => {
               this.signed = true
               this.getPetitions()
@@ -199,7 +199,7 @@
             .catch(err => alert(err));
 
         }else {
-        this.axios.delete('http://localhost:4941/api/v1/petitions/' + this.petitionId + "/signatures" )
+        this.axios.delete('http://45.76.124.20:4941/api/v1/petitions/' + this.petitionId + "/signatures" )
           .then((res) => {
             this.signed = false
             this.getPetitions()
@@ -222,7 +222,7 @@
       getPetitions() {
         this.petitionId = this.$route.params.id;
         const currentObj = this
-        this.axios.get('http://localhost:4941/api/v1/petitions/' + this.petitionId )
+        this.axios.get('http://45.76.124.20:4941/api/v1/petitions/' + this.petitionId )
           .then((res) => {
             this.data = res.data;
             this.getProfileImage();
@@ -243,7 +243,7 @@
       },
       getSignatures() {
         const currentObj = this;
-        this.axios.get('http://localhost:4941/api/v1/petitions/' + this.petitionId + "/signatures")
+        this.axios.get('http://45.76.124.20:4941/api/v1/petitions/' + this.petitionId + "/signatures")
           .then((res) => {
             this.petition = res.data;
             this.count = res.data.length
@@ -261,7 +261,7 @@
       },
       getImage() {
         const currentObj = this
-        this.axios.get('http://localhost:4941/api/v1/petitions/' + this.petitionId + "/photo", { responseType: 'blob' })
+        this.axios.get('http://45.76.124.20:4941/api/v1/petitions/' + this.petitionId + "/photo", { responseType: 'blob' })
           .then((res) => {
             let fileReader = new FileReader();
             fileReader.readAsDataURL(res.data);
@@ -274,7 +274,7 @@
       },
       getProfileImage() {
         const currentObj = this
-        this.axios.get('http://localhost:4941/api/v1/users/' + this.data.authorId + "/photo", { responseType: 'blob' })
+        this.axios.get('http://45.76.124.20:4941/api/v1/users/' + this.data.authorId + "/photo", { responseType: 'blob' })
           .then((res) => {
             let fileReader = new FileReader();
             fileReader.readAsDataURL(res.data);

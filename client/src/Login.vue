@@ -60,7 +60,7 @@
       onSubmit: function (e) {
         let currentObj = this;
         //this.axios.defaults.withCredentials = true;
-        this.axios.post('http://localhost:4941/api/v1/users/login', {
+        this.axios.post('http://45.76.124.20:4941/api/v1/users/login', {
           email: this.email,
           password: this.password
         })

@@ -46,7 +46,7 @@
         <a :href="'/petition/' + data.item.petitionId">View</a>
       </template>
       <template v-slot:cell(image) = "data">
-        <img :src="'http://localhost:4941/api/v1/petitions/' + data.item.petitionId + '/photo' " alt="" width="50" heigt="50"/>
+        <img :src="'http://45.76.124.20:4941/api/v1/petitions/' + data.item.petitionId + '/photo' " alt="" width="50" heigt="50"/>
       </template>
     </b-table>
     </b-row>
@@ -118,7 +118,7 @@
         },
         getCategories() {
           const currectObj = this;
-          this.axios.get('http://localhost:4941/api/v1/petitions/categories')
+          this.axios.get('http://45.76.124.20:4941/api/v1/petitions/categories')
             .then((res) => {
               const data = res.data;
               for (let i = 0; i < data.length; i++) {
@@ -156,9 +156,9 @@
           query += hit ? '&' : '?';
           query += "authorId=" + this.authorId
         }
-        let getUrl = 'http://localhost:4941/api/v1/petitions' + query
+        let getUrl = 'http://45.76.124.20:4941/api/v1/petitions' + query
         if (this.onProfilePage) {
-          getUrl = 'http://localhost:4941/api/v1/petitions?authorId=' + localStorage.getItem("user")
+          getUrl = 'http://45.76.124.20:4941/api/v1/petitions?authorId=' + localStorage.getItem("user")
         }
         this.axios.get(getUrl)
           .then((res) => {

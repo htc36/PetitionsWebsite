@@ -50,7 +50,7 @@
     },
     methods: {
       getPetitions(page) {
-        // this.axios.get('http://localhost:4941/api/v1/petitions')
+        // this.axios.get('http://45.76.124.20:4941/api/v1/petitions')
         const startIndex = (page - 1) * this.limit
         this.axios.get('http://csse-s365.canterbury.ac.nz:4001/api/v1/petitions?startIndex='+ startIndex + '&count=' + this.limit)
           .then((res) => {

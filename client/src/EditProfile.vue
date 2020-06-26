@@ -148,7 +148,7 @@
     methods: {
       deletePhoto: function() {
         const currentObj = this
-        this.axios.delete('http://localhost:4941/api/v1/users/' + this.loggedInUser + '/photo')
+        this.axios.delete('http://45.76.124.20:4941/api/v1/users/' + this.loggedInUser + '/photo')
           .then(function (response) {
             currentObj.imageData = ''
 
@@ -190,7 +190,7 @@
         if(this.country!= "") {
           sendData["country"] = this.city
         }
-        this.axios.patch('http://localhost:4941/api/v1/users/' + this.loggedInUser,
+        this.axios.patch('http://45.76.124.20:4941/api/v1/users/' + this.loggedInUser,
           sendData)
           .then(function (response) {
             if (currentObj.imageName != null) {
@@ -210,7 +210,7 @@
       setImage: function () {
         const currentObj = this
         this.axios.defaults.headers.common['X-Authorization'] = localStorage.getItem('token');
-        this.axios.put('http://localhost:4941/api/v1/users/' + this.loggedInUser + "/photo",
+        this.axios.put('http://45.76.124.20:4941/api/v1/users/' + this.loggedInUser + "/photo",
           this.imageName,
           {headers: {
               "Content-Type": this.imageName.type
@@ -226,7 +226,7 @@
       getUserSession: function () {
         let currentObj = this;
         this.axios.defaults.headers.common['X-Authorization'] = localStorage.getItem('token');
-        this.axios.get('http://localhost:4941/api/v1/users/' + localStorage.getItem("user"))
+        this.axios.get('http://45.76.124.20:4941/api/v1/users/' + localStorage.getItem("user"))
           .then(function (response) {
             currentObj.fullName = JSON.stringify(response.data.name).slice(1, -1);
             currentObj.city = response.data.city != null ? JSON.stringify(response.data.city).slice(1, -1) : ""
@@ -243,7 +243,7 @@
       },
       getUserImage: function (id) {
         const currentObj = this;
-        Vue.axios.get('http://localhost:4941/api/v1/users/' + id + '/photo', { responseType: 'blob' })
+        Vue.axios.get('http://45.76.124.20:4941/api/v1/users/' + id + '/photo', { responseType: 'blob' })
           .then(function (response){
             let fileReader = new FileReader();
             fileReader.readAsDataURL(response.data);
@@ -288,7 +288,7 @@
           return;
         }
         const currentObj = this;
-        this.axios.patch('http://localhost:4941/api/v1/users/' + this.loggedInUser, {
+        this.axios.patch('http://45.76.124.20:4941/api/v1/users/' + this.loggedInUser, {
           password: this.password,
           currentPassword: this.oldPassword,
         })

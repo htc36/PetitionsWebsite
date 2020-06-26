@@ -143,7 +143,7 @@
           sendData["country"] = this.country
         }
 
-        this.axios.post('http://localhost:4941/api/v1/users/register',
+        this.axios.post('http://45.76.124.20:4941/api/v1/users/register',
           sendData)
           .then(function (response) {
             currentObj.login();
@@ -158,7 +158,7 @@
       },
       login: function () {
         let currentObj = this;
-        this.axios.post('http://localhost:4941/api/v1/users/login', {
+        this.axios.post('http://45.76.124.20:4941/api/v1/users/login', {
           email: this.primary_email,
           password: this.password,
         })
@@ -178,7 +178,7 @@
       },
       setImage: function (id) {
         this.axios.defaults.headers.common['X-Authorization'] = localStorage.getItem('token');
-        this.axios.put('http://localhost:4941/api/v1/users/' + id + "/photo",
+        this.axios.put('http://45.76.124.20:4941/api/v1/users/' + id + "/photo",
           this.imageName,
           {headers: {
               "Content-Type": this.imageName.type

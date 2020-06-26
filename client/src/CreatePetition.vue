@@ -150,7 +150,7 @@
 
       getCategories() {
         const currectObj = this;
-        this.axios.get('http://localhost:4941/api/v1/petitions/categories')
+        this.axios.get('http://45.76.124.20:4941/api/v1/petitions/categories')
           .then((res) => {
             const data = res.data;
             for (let i = 0; i < data.length; i++) {
@@ -179,19 +179,19 @@
           toSend["closingDate"] = dateString
         }
         this.axios.defaults.headers.common['X-Authorization'] = localStorage.getItem('token');
-        this.axios.post('http://localhost:4941/api/v1/petitions',
+        this.axios.post('http://45.76.124.20:4941/api/v1/petitions',
           toSend
         )
           .then((res) => {
             const id = res.data.petitionId
-            this.axios.put('http://localhost:4941/api/v1/petitions/' + id + "/photo",
+            this.axios.put('http://45.76.124.20:4941/api/v1/petitions/' + id + "/photo",
               this.file,
               {headers: {
                   "Content-Type": this.file.type
                 }
               })
               .then(function (response) {
-                currectObj.axios.post('http://localhost:4941/api/v1/petitions/' + id + "/signatures")
+                currectObj.axios.post('http://45.76.124.20:4941/api/v1/petitions/' + id + "/signatures")
                   .then(function (response) {
                     currectObj.$router.push('/petition/' + id);
                   })

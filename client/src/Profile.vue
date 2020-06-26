@@ -66,7 +66,7 @@
       getUserSession: function () {
         let currentObj = this;
         this.axios.defaults.headers.common['X-Authorization'] = localStorage.getItem('token');
-        this.axios.get('http://localhost:4941/api/v1/users/' + localStorage.getItem("user"))
+        this.axios.get('http://45.76.124.20:4941/api/v1/users/' + localStorage.getItem("user"))
           .then(function (response) {
             currentObj.name = JSON.stringify(response.data.name).slice(1, -1);
             currentObj.city = response.data.city != null ? JSON.stringify(response.data.city).slice(1, -1) : ""
@@ -83,7 +83,7 @@
       },
       getUserImage: function (id) {
         const currentObj = this;
-        Vue.axios.get('http://localhost:4941/api/v1/users/' + id + '/photo', { responseType: 'blob' })
+        Vue.axios.get('http://45.76.124.20:4941/api/v1/users/' + id + '/photo', { responseType: 'blob' })
           .then(function (response){
             let fileReader = new FileReader();
             fileReader.readAsDataURL(response.data);

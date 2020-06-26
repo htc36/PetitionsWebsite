@@ -72,7 +72,7 @@
     },
     methods: {
       getUsers:function(){
-        this.$http.get('http://localhost:3000/api/users')
+        this.$http.get('http://45.76.124.20:3000/api/users')
           .then(function(response){
             this.users =response.data;
           }, function(error){
@@ -87,7 +87,7 @@
         }
       },
       deleteUser: function(user_id){
-        this.$http.delete('http://localhost:3000/api/users/'+ user_id)
+        this.$http.delete('http://45.76.124.20:3000/api/users/'+ user_id)
           .then(function(response){
             for(var i = 0; i <this.users.length; i++){
               if(user_id==this.users[i].user_id){
